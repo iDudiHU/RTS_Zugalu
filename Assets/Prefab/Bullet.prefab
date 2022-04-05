@@ -191,4 +191,4 @@ MonoBehaviour:
   _rigidbody: {fileID: 6272767145242622723}
   _damage: 1
   _speed: 50
-  _lifeTime: 5
+  _lifeTime: 2

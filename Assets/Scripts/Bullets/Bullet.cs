@@ -2,15 +2,23 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+[RequireComponent(typeof(Rigidbody))]
 public class Bullet : MonoBehaviour
 {
+	[Tooltip("Rigidbody for the bullet")]
 	[SerializeField] private Rigidbody _rigidbody;
-	[SerializeField] private float _damage, _speed, _lifeTime;
+	[Tooltip("Bullet damage")]
+	[SerializeField] private float _damage;
+	[Tooltip("Bullet speed")]
+	[SerializeField] private float _speed;
+	[Tooltip("Bullet lifetime to be destroyed ")]
+	[SerializeField] private float _lifeTime;
 
 	private BulletPool _pool;
 
 	private void Start()
 	{
+		//basic error 
 		if (_rigidbody == null)
 		{
 			Debug.LogError("Add bullet's rigidbody reference!", transform);

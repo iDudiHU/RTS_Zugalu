@@ -143,5 +143,6 @@ MonoBehaviour:
   - {fileID: 5514041536427083179, guid: f41a07fec1a8a654c83bf17c21d8a8cc, type: 3}
   - {fileID: 5514041536427083179, guid: b2b8b3fa6a6f237479bada4252cbc521, type: 3}
   _spawnTransform: {fileID: 5374265006566604525}
-  _NumberOfEnemiesToSpawn: 10
-  _spawnSpeed: 4
+  _numberOfUnitsToSpawn: 25
+  _CurrentNumberOfUnits: 0
+  _spawnDealy: 4

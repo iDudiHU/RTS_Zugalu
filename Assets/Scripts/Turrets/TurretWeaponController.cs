@@ -4,12 +4,10 @@ using UnityEngine;
 
 public class TurretWeaponController : MonoBehaviour
 {
-	[SerializeField]
-	private float _hp;
-	[SerializeField]
-	private float _speed;
+	[Tooltip("Fire rate")]
 	[SerializeField]
 	private float _fireRate = 0.15f;
+	[Tooltip("List of transforms of barrel tips")]
 	[SerializeField]
 	private List<Transform> _WeaponTips = new List<Transform>();
 	private BulletPool _pool;
@@ -20,6 +18,7 @@ public class TurretWeaponController : MonoBehaviour
 	{
 		_pool = GameObject.FindGameObjectWithTag("EnemyBulletPool").GetComponent<BulletPool>();
 	}
+	//Handles fireing the bullet if fire rate ammount of time has passed
 	public void Fire()
 	{
 		if (_nextFireTime > Time.time) return;
