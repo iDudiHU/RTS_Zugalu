@@ -18,7 +18,7 @@ public class Bullet : MonoBehaviour
 
 	private void Start()
 	{
-		//basic error 
+		//basic error check
 		if (_rigidbody == null)
 		{
 			Debug.LogError("Add bullet's rigidbody reference!", transform);
@@ -33,6 +33,7 @@ public class Bullet : MonoBehaviour
 
 	public void Shoot(Transform startPos)
 	{
+		//use invoke to make sure the bullet resets on lifetime time if it not collided with anything
 		Invoke(nameof(ResetBullet), _lifeTime);
 		gameObject.SetActive(true);
 		transform.position = startPos.position;
@@ -44,6 +45,7 @@ public class Bullet : MonoBehaviour
 
 	private void OnTriggerEnter(Collider other)
 	{
+		//Accesing the IDamageableinterface on collsion if it is a damageable object otherwise reset bullet
 		CancelInvoke(nameof(ResetBullet));
 
 		IDamageable damageable = other.GetComponentInParent<IDamageable>();
@@ -54,7 +56,7 @@ public class Bullet : MonoBehaviour
 
 		ResetBullet();
 	}
-
+	//put bullet back to the pool reseted out
 	public void ResetBullet()
 	{
 		_rigidbody.velocity = _rigidbody.angularVelocity = Vector3.zero;
