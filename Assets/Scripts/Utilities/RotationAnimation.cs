@@ -2,9 +2,6 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-/// <summary>
-/// Class that handles animation of a traditional pickup.
-/// </summary>
 public class RotationAnimation : MonoBehaviour
 {
     [Tooltip("The height difference between the resting position of the object and it's maximum or minimum height.")]

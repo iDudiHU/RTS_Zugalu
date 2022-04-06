@@ -1,7 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+//Class that handles the bullet
 [RequireComponent(typeof(Rigidbody))]
 public class Bullet : MonoBehaviour
 {

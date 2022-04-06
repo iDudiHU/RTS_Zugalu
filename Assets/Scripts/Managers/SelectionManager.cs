@@ -1,5 +1,5 @@
 using System.Collections.Generic;
-
+//Class that handles selection of units
 public class SelectionManager
 {
     private static SelectionManager _instance;
@@ -19,10 +19,11 @@ public class SelectionManager
             _instance = value;
         }
     }
-
+    //hashset used to make sure to not select the same unit twice
     public HashSet<SelectableUnit> SelectedUnits = new HashSet<SelectableUnit>();
     public List<SelectableUnit> AvailableUnits = new List<SelectableUnit>();
 
+    //create Selection manager withouth attached to a gameobject
     private SelectionManager() { }
 
     public void Select(SelectableUnit Unit)

@@ -1,6 +1,7 @@
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
+//Class that loads the next level
 public class LoadLevelButton : MonoBehaviour
 {
     [Tooltip("Scriptable Object containing player name")]

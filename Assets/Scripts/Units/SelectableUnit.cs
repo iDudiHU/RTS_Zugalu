@@ -1,32 +1,40 @@
 using UnityEngine;
 using UnityEngine.AI;
 
+//Base selectable unit class
 [RequireComponent(typeof(NavMeshAgent))]
 public class SelectableUnit : Damageable
 {
-    private NavMeshAgent Agent;
+    private NavMeshAgent _agent;
+    [Tooltip("Transform of the highlite gamobject")]
     [SerializeField]
-    private Transform highlite;
+    private Transform _highlite;
 
     private void Awake()
     {
         SelectionManager.Instance.AvailableUnits.Add(this);
-        Agent = GetComponent<NavMeshAgent>();
+        _agent = GetComponent<NavMeshAgent>();
     }
 
-    public void MoveTo(Vector3 Position)
+	public void OnEnable()
+	{
+		_agent.SetDestination(transform.position + transform.forward * 5);
+        
+    }
+
+	public void MoveTo(Vector3 Position)
     {
-        Agent.SetDestination(Position);
+        _agent.SetDestination(Position);
     }
 
     public void OnSelected()
     {
-        highlite.gameObject.SetActive(true);
+        _highlite.gameObject.SetActive(true);
     }
 
     public void OnDeselected()
     {
-        highlite.gameObject.SetActive(false);
+        _highlite.gameObject.SetActive(false);
     }
 
 	public void OnDestroy()

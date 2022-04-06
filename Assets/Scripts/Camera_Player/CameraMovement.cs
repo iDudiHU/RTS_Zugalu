@@ -63,7 +63,7 @@ public class CameraMovement : MonoBehaviour
             cameraActions = new RTSControl();
             cameraTransform = this.GetComponentInChildren<Camera>().transform;
         }
-
+        //Subscribe to input actions
         private void OnEnable()
         {
             zoomHeight = cameraTransform.localPosition.y;
@@ -76,7 +76,7 @@ public class CameraMovement : MonoBehaviour
             cameraActions.GameplayActionMap.ZoomCamera.performed += ZoomCamera;
             cameraActions.GameplayActionMap.Enable();
         }
-
+        //Unsubscribe to avoid errors
         private void OnDisable()
         {
             cameraActions.GameplayActionMap.RotateCamera.performed -= RotateCamera;

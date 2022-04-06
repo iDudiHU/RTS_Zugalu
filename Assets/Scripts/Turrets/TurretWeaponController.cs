@@ -1,7 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+//Class that handles the weapon of the turret
 public class TurretWeaponController : MonoBehaviour
 {
 	[Tooltip("Fire rate")]

@@ -1,5 +1,5 @@
 using UnityEngine;
-
+//Scriptbale object to save the text input between scenes
 [CreateAssetMenu]
 public class NameSO : ScriptableObject
 {

@@ -249,7 +249,7 @@ public partial class @RTSControl : IInputActionCollection2, IDisposable
                 {
                     ""name"": """",
                     ""id"": ""adf72a43-4c5b-45e2-a975-be4498d7089d"",
-                    ""path"": ""<Keyboard>/shift"",
+                    ""path"": ""<Keyboard>/leftShift"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",

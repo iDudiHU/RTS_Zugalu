@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+//Create a popints of circle than feed it to the line renderer
 public class DrawCircle : MonoBehaviour
 {
     

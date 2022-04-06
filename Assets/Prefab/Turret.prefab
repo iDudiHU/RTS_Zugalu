@@ -78,8 +78,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9d9a5ceca8286e549b8d1f96330f684c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _hp: 5
-  _speed: 10
   _fireRate: 0.75
   _WeaponTips:
   - {fileID: 6802237232990892684}
@@ -810,7 +808,8 @@ GameObject:
   m_Component:
   - component: {fileID: 5637846429982434524}
   - component: {fileID: 741960927639340712}
-  m_Layer: 8
+  - component: {fileID: 8964927191849924917}
+  m_Layer: 10
   m_Name: Turret
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -858,8 +857,22 @@ MonoBehaviour:
   _turretWeapon: {fileID: 4827824712336234233}
   _drawRangeCircle: {fileID: 2712617269764176480}
   TurretTargetString: TurretTarget
+  _otherBuildingsCount: 0
   yawBase: {fileID: 3110236969777422710}
   pitchBase: {fileID: 5255589286628371434}
+--- !u!65 &8964927191849924917
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5665403520833300595}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 2.0152292, y: 4.011186, z: 2.0082164}
+  m_Center: {x: 0.0070593357, y: 0.42655087, z: 0.0018727779}
 --- !u!1 &9025080110829724154
 GameObject:
   m_ObjectHideFlags: 0

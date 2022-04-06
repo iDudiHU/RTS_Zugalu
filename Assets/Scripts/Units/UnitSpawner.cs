@@ -2,16 +2,22 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+//Class that spawns units
 public class UnitSpawner : MonoBehaviour
 {
+    [Tooltip("List of spawnable units")]
     [SerializeField]
     private List<SelectableUnit> _spawnableUnits;
+    [Tooltip("Transform location on where the unit appears")]
     [SerializeField]
-    private Transform _spawnTransform;
+    private Transform _spawnLocationTransform;
+    [Tooltip("Max number of units to spawn")]
     [SerializeField]
     private int _numberOfUnitsToSpawn = 10;
+    [Tooltip("Current number of units")]
     [SerializeField]
     private int _CurrentNumberOfUnits = 0;
+    [Tooltip("Time between unit spawn")]
     [SerializeField]
     private float _spawnDealy = 1f;
     
@@ -41,8 +47,8 @@ public class UnitSpawner : MonoBehaviour
 
     void Spawn(int index)
     {
-        if (_spawnableUnits != null || _spawnTransform != null)
-            Instantiate(_spawnableUnits[index].gameObject, _spawnTransform.position, _spawnTransform.rotation);
+        if (_spawnableUnits != null || _spawnLocationTransform != null)
+            Instantiate(_spawnableUnits[index].gameObject, _spawnLocationTransform.position, _spawnLocationTransform.rotation);
     }
 
     public void UnitDestroyed()

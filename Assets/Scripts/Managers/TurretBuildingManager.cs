@@ -1,7 +1,7 @@
 using System;
 using UnityEngine;
 using UnityEngine.InputSystem;
-
+//Class that allows to build turrets
 public class TurretBuildingManager : MonoBehaviour
 {
     [Tooltip("Main Camera")]
@@ -17,10 +17,13 @@ public class TurretBuildingManager : MonoBehaviour
     [Tooltip("Layer to controll where to and where not to build")]
     [SerializeField]
     private LayerMask _buildableLayer;
+    [SerializeField]
+    private LayerMask _turretLayer;
 
     private float mouseWheelRotation;
 
     private RTSControl _inputActions;
+
 
     private void Awake()
     {
@@ -41,6 +44,7 @@ public class TurretBuildingManager : MonoBehaviour
 
 	public void OnButtonPess()
     {
+        //Destroy if already exist
         if (_placeableObject != null)
         {
             Destroy(_placeableObject);
@@ -50,6 +54,7 @@ public class TurretBuildingManager : MonoBehaviour
     }
     private void MoveCurrentObjectToMouse()
     {
+        //Raycast on the buildable layer
         if (Physics.Raycast(Camera.ScreenPointToRay(Mouse.current.position.ReadValue()), out RaycastHit hitInfo, 5000000f, _buildableLayer))
         {
             _placeableObject.transform.position = hitInfo.point;
@@ -72,10 +77,19 @@ public class TurretBuildingManager : MonoBehaviour
 
     private void ConfirmBuild()
     {
-        if (Mouse.current.leftButton.wasPressedThisFrame && !_placeableObject.transform.position.Equals(Vector3.zero))
-        {
-            _placeableObject = null;
+        //if it is on buildable layer
+        if (Physics.Raycast(Camera.ScreenPointToRay(Mouse.current.position.ReadValue()), out RaycastHit hitInfo, 5000000f, _buildableLayer))
+		{
+            //find colliders in range to make sure not to build on eachother
+            Collider[] hitColliders = Physics.OverlapSphere(hitInfo.point, 2f, _turretLayer);
+            if (Mouse.current.leftButton.wasPressedThisFrame && !_placeableObject.transform.position.Equals(Vector3.zero) && hitColliders.Length == 1)
+            {
+                _placeableObject = null;
+            }
+            
         }
+            
+        
     }
 
     private void CancelBuild()

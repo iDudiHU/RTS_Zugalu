@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
-
+//Class that handles saving the name
 public class UI_StringInput : MonoBehaviour
 {
     private TMP_InputField _inputField;
@@ -20,16 +20,16 @@ public class UI_StringInput : MonoBehaviour
 		_nameSO.PlayerInput = _inputField.text;
 	}
 
-	
-	private char ValidateCharacter(string validCharacters, char addedCharacter)
-	{
-		if (validCharacters.IndexOf(addedCharacter) != -1)
-		{
-			return addedCharacter;
-		}
-		else
-		{
-			return '\0';
-		}
-	}
+	//Wanted to handle validation for the input field
+	//private char ValidateCharacter(string validCharacters, char addedCharacter)
+	//{
+	//	if (validCharacters.IndexOf(addedCharacter) != -1)
+	//	{
+	//		return addedCharacter;
+	//	}
+	//	else
+	//	{
+	//		return '\0';
+	//	}
+	//}
 }

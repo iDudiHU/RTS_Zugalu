@@ -23,13 +23,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5374265006566604524}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.85715586, y: -0.5042857, z: 0}
+  m_LocalRotation: {x: -0, y: 0.707107, z: -0, w: 0.70710665}
+  m_LocalPosition: {x: 0.8571557, y: -0.5042855, z: -0.00000031931057}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 5374265008013686739}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 90, z: 0}
 --- !u!1 &5374265008013686738
 GameObject:
   m_ObjectHideFlags: 0
@@ -142,7 +142,7 @@ MonoBehaviour:
   _spawnableUnits:
   - {fileID: 5514041536427083179, guid: f41a07fec1a8a654c83bf17c21d8a8cc, type: 3}
   - {fileID: 5514041536427083179, guid: b2b8b3fa6a6f237479bada4252cbc521, type: 3}
-  _spawnTransform: {fileID: 5374265006566604525}
+  _spawnLocationTransform: {fileID: 5374265006566604525}
   _numberOfUnitsToSpawn: 25
   _CurrentNumberOfUnits: 0
   _spawnDealy: 4

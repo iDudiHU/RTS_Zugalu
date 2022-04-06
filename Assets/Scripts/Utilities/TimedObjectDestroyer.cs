@@ -2,7 +2,6 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-// A class which destroys it's gameobject after a certain amount of time
 public class TimedObjectDestroyer : MonoBehaviour
 {
     [Tooltip("The lifetime of this gameobject")]

@@ -1,7 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+//Classs that handles the bullets in its pool
 public class BulletPool : MonoBehaviour
 {
 	[Tooltip("Bullet prefab to be spawned in this bullets pool")]

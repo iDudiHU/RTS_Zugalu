@@ -2,39 +2,50 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+//Class that handles the turret
 public class Turret : Damageable
 {
     private Transform target;
-    [SerializeField] private float range = 15f;
-    [SerializeField] private float speedYaw = 60.0f;
-    [SerializeField] private float speedPitch = 5.0f;
+    [Tooltip("Turret ange")]
+    [SerializeField] private float _range = 15f;
+    [Tooltip("Yaw rotation speed")]
+    [SerializeField] private float _speedYaw = 60.0f;
+    [Tooltip("Pitch rotation speed")]
+    [SerializeField] private float _speedPitch = 5.0f;
+    [Tooltip("Angle to be able to shoot (Dot product)")]
     [SerializeField] private float _shootAngle = 0.8f;
+    [Tooltip("Turret helper gameobject to point at the target")]
     [SerializeField] private Transform _turretHelper;
+    [Tooltip("Weapon script in the prefab")]
     [SerializeField] private TurretWeaponController _turretWeapon;
+    [Tooltip("Debug circle script to show range in game/ would use a shadergraph shader instead that is dynamic with the terrain")]
     [SerializeField] private DrawCircle _drawRangeCircle;
-    [SerializeField] private string TurretTargetString;
+    [Tooltip("Target aim gameobjects name")]
+    [SerializeField] private string _turretTargetString;
 
     public Transform yawBase;
     public Transform pitchBase;
 
 
+
 	void Awake()
     {
         InvokeRepeating("UpdateTarget", 0f, 0.5f);
-        _drawRangeCircle.RadiousToDraw = range;
+        _drawRangeCircle.RadiousToDraw = _range;
     }
 
     void Update()
     {
         if (target == null) return;
+        //Helps with the dual axis rotation of the turret
         _turretHelper.LookAt(target);
 
         Vector3 dir = target.position - transform.position;
         Quaternion lookRotation = Quaternion.LookRotation(dir);
         Vector3 rotation = lookRotation.eulerAngles;
 
-        yawBase.rotation = Quaternion.RotateTowards(yawBase.rotation, Quaternion.Euler(0f, rotation.y, 0f), speedYaw * Time.deltaTime);
-        pitchBase.localRotation = Quaternion.RotateTowards(pitchBase.localRotation, Quaternion.Euler(_turretHelper.localRotation.eulerAngles.x, pitchBase.localRotation.y, pitchBase.localRotation.z), speedPitch * Time.deltaTime);
+        yawBase.rotation = Quaternion.RotateTowards(yawBase.rotation, Quaternion.Euler(0f, rotation.y, 0f), _speedYaw * Time.deltaTime);
+        pitchBase.localRotation = Quaternion.RotateTowards(pitchBase.localRotation, Quaternion.Euler(_turretHelper.localRotation.eulerAngles.x, pitchBase.localRotation.y, pitchBase.localRotation.z), _speedPitch * Time.deltaTime);
 
         if (TargetVisible())
         {
@@ -58,9 +69,9 @@ public class Turret : Damageable
 			}
 		}
 
-		if (nearestUnit != null && shortestDistance <= range)
+		if (nearestUnit != null && shortestDistance <= _range)
 		{
-            target = nearestUnit.gameObject.transform.Find(TurretTargetString).transform;
+            target = nearestUnit.gameObject.transform.Find(_turretTargetString).transform;
 		}
 		else
 		{
@@ -83,6 +94,6 @@ public class Turret : Damageable
 	private void OnDrawGizmosSelected()
 	{
         Gizmos.color = Color.red;
-        Gizmos.DrawWireSphere(transform.position, range);
+        Gizmos.DrawWireSphere(transform.position, _range);
 	}
 }

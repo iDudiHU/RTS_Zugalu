@@ -1,10 +1,10 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+/// Class that closes the game or exits play mode depending on the case
 public class QuitGameButton : MonoBehaviour
 {
-    /// Closes the game or exits play mode depending on the case
+    
     public void QuitGame()
     {
 #if UNITY_EDITOR
